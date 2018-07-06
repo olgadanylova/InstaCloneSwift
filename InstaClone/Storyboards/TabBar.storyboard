@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="tIk-ST-laq">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarID" id="iRK-DQ-M4o" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="zjM-i8-swA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="F0c-Qg-zXL" kind="relationship" relationship="viewControllers" id="6ib-2D-JRO"/>
+                        <segue destination="iVQ-d8-VAh" kind="relationship" relationship="viewControllers" id="A0k-A8-bFg"/>
+                        <segue destination="S8H-Np-Z7S" kind="relationship" relationship="viewControllers" id="ZfD-ea-Y66"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCi-nw-kiz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="85"/>
+        </scene>
+        <!--NavigationHome-->
+        <scene sceneID="GVR-Dh-Voz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NavigationHome" id="F0c-Qg-zXL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="home" id="3rt-LD-RbA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipj-L9-Mwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1978" y="-136"/>
+        </scene>
+        <!--NavigationCamera-->
+        <scene sceneID="nuu-Ym-8UC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Camera" referencedIdentifier="NavigationCamera" id="iVQ-d8-VAh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="photo" id="Qih-Fb-6Qc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1QJ-Bw-Yrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1987" y="61"/>
+        </scene>
+        <!--NavigationProfile-->
+        <scene sceneID="qeS-0I-ycT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="NavigationProfile" id="S8H-Np-Z7S" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="JoY-wR-h4W"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWQ-hP-b0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1982" y="235"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="home" width="21" height="23"/>
+        <image name="photo" width="22" height="23"/>
+        <image name="profile" width="20" height="21"/>
+    </resources>
+</document>
