@@ -107,7 +107,6 @@ class PictureHelper: NSObject {
                 }
                 DispatchQueue.main.sync {
                     postCell.postImageView.image = image
-                    postCell.activityIndicator.isHidden = true
                     postCell.activityIndicator.stopAnimating()
                 }
             }
