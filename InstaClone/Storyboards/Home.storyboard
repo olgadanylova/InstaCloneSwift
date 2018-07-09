@@ -153,24 +153,20 @@
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="LCX-Nj-RZY">
                             <color key="tintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="pressedLogout:" destination="oCz-LK-P5G" id="sdw-Oo-3NF"/>
+                                <action selector="pressedLogout:" destination="oCz-LK-P5G" id="hqg-UM-vSZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="n4P-Lf-gKX">
                             <connections>
-                                <action selector="pressedRefresh:" destination="oCz-LK-P5G" id="RMZ-dv-hI7"/>
+                                <action selector="pressedRefresh:" destination="oCz-LK-P5G" id="w9l-qW-6xt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="DKU-uj-1BC" id="fqy-Qw-osg"/>
-                        <segue destination="UBX-BK-zm0" kind="show" identifier="ShowComments" id="8ZI-55-Vao"/>
-                        <segue destination="ixB-e0-UFI" kind="unwind" identifier="unwindToSignIn" unwindAction="unwindToSignIn:" id="QP7-rF-Z6y"/>
-                        <segue destination="xBG-ki-skc" kind="show" identifier="ShowLikes" id="mBN-PF-vLp"/>
+                        <outlet property="tableView" destination="DKU-uj-1BC" id="5NU-4B-2Am"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28o-Ct-t7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ixB-e0-UFI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3119.1999999999998" y="-935.08245877061472"/>
         </scene>

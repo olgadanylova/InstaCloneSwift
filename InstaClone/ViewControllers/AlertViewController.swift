@@ -46,8 +46,8 @@ class AlertViewController: UIViewController {
         target.present(alert, animated: true, completion: nil)
     }
     
-    func showSegueAlert(_ title: String, _ message: String, _ target: UIViewController, _ action: ((UIAlertAction) -> Void)?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    func showSegueAlert(_ target: UIViewController, _ action: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: "Registration complete", message: "Please login to continue", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: action))
         target.present(alert, animated: true, completion: nil)
     }
@@ -106,9 +106,7 @@ class AlertViewController: UIViewController {
             confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                 Backendless.sharedInstance().data.of(Post.ofClass()).remove(post, response: { deleted in
                     if (target.isKind(of: PostViewContoller.ofClass())) {
-                        DispatchQueue.main.sync {
-                            target.performSegue(withIdentifier: "unwindToProfileVC", sender: nil)
-                        }
+                        target.performSegue(withIdentifier: "unwindToProfileVC", sender: nil)
                     }
                 }, error: { fault in
                     self.showErrorAlert(fault!.message, target)

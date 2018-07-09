@@ -35,64 +35,41 @@ class PostCell: UITableViewCell {
         likeStore = Backendless.sharedInstance().data.of(Likee.ofClass())
     }
     
-    @objc func handleLikeTap() {
-        
+     @IBAction func handleLikeTap() {
         if (!liked) {
             liked = true
             likeImageView.image = UIImage(named: "likeSelected")
             likeStore?.save(Likee(), response: { like in
-               
-                
+                    self.postStore!.addRelation("likes:Like:n", parentObjectId: self.post?.objectId, childObjects: [(like as! Likee).objectId!], response: { relationSet in
+                        self.postStore?.find(byId: self.post?.objectId, response: { foundPost in
+                            UIView.setAnimationsEnabled(false)
+                            self.likeCountButton.setTitle(String(format: "%lu Likes", ((foundPost as! Post).likes?.count)!), for: .normal)
+                            UIView.setAnimationsEnabled(true)
+                        }, error: { fault in
+                        })
+                }, error: { fault in
+                })
             }, error: { fault in
-                
             })
         }
-        
-        /*__weak PostCell *weakSelf = self;
-         __weak id<IDataStore> weakPostStore = postStore;
-         if (!self.liked) {
-         self.liked = YES;
-         self.likeImageView.image = [UIImage imageNamed:@"likeSelected"];
-         [likeStore save:[Likee new] response:^(Likee *like) {
-         [self->postStore addRelation:@"likes:Like:n"
-         parentObjectId:self.post.objectId
-         childObjects:@[like.objectId]
-         response:^(NSNumber *relationSet) {
-         [weakPostStore findById:weakSelf.post.objectId response:^(Post *post) {
-         [UIView setAnimationsEnabled:NO];
-         dispatch_async(dispatch_get_main_queue(), ^{
-         [weakSelf.likeCountButton setTitle:[NSString stringWithFormat:@"%lu Likes", [post.likes count]] forState:UIControlStateNormal];
-         });
-         
-         [UIView setAnimationsEnabled:YES];
-         } error:^(Fault *fault) {
-         }];
-         } error:^(Fault *fault) {
-         }];
-         } error:^(Fault *fault) {
-         }];
-         }
-         else {
-         self.liked = NO;
-         self.likeImageView.image = [UIImage imageNamed:@"like"];
-         DataQueryBuilder *queryBuilder = [DataQueryBuilder new];
-         [queryBuilder setWhereClause:[NSString stringWithFormat:@"ownerId = '%@'", backendless.userService.currentUser.objectId]];
-         [likeStore findFirst:queryBuilder response:^(Likee *like) {
-         [self->likeStore remove:like response:^(NSNumber *removed) {
-         [self->postStore findById:self.post.objectId response:^(Post *post) {
-         [UIView setAnimationsEnabled:NO];
-         dispatch_async(dispatch_get_main_queue(), ^{
-         [self.likeCountButton setTitle:[NSString stringWithFormat:@"%lu Likes", [post.likes count]] forState:UIControlStateNormal];
-         });
-         [UIView setAnimationsEnabled:YES];
-         } error:^(Fault *fault) {
-         }];
-         } error:^(Fault *fault) {
-         }];
-         } error:^(Fault *fault) {
-         }];
-         }*/
-        
+        else {
+            liked = false
+            likeImageView.image = UIImage(named: "like")
+            let queryBuilder = DataQueryBuilder()!
+            queryBuilder.setWhereClause(String(format: "ownerId = '%@'", Backendless.sharedInstance().userService.currentUser.objectId))
+            likeStore?.findFirst(queryBuilder, response: { like in
+                self.likeStore?.remove(like, response: { removed in
+                    self.self.postStore?.find(byId: self.post?.objectId, response: { foundPost in
+                        UIView.setAnimationsEnabled(false)
+                        self.likeCountButton.setTitle(String(format: "%lu Likes", ((foundPost as! Post).likes?.count)!), for: .normal)
+                        UIView.setAnimationsEnabled(true)
+                    }, error: { fault in
+                    })
+                }, error: { fault in
+                })
+            }, error: { fault in
+            })
+        }        
     }
     
     func changeLikesButtonTitle() {

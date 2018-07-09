@@ -12,7 +12,7 @@
         <!--Camera-->
         <scene sceneID="F3Z-GO-PdD">
             <objects>
-                <viewController storyboardIdentifier="CameraVC" id="gwx-UJ-d6d" customClass="CameraViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraVC" id="gwx-UJ-d6d" customClass="CameraViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZUF-YH-tYi"/>
                         <viewControllerLayoutGuide type="bottom" id="Twn-gf-DJ1"/>
@@ -60,10 +60,10 @@
                                     <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressedShare:" destination="gwx-UJ-d6d" eventType="touchUpInside" id="1ic-9c-6VV"/>
+                                    <action selector="pressedShare:" destination="gwx-UJ-d6d" eventType="touchUpInside" id="ifQ-wu-TZ7"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zMN-Jc-Af3">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zMN-Jc-Af3">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -84,16 +84,16 @@
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="Oem-Jg-3aW">
                             <color key="tintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="pressedClear:" destination="gwx-UJ-d6d" id="797-EO-Ucr"/>
+                                <action selector="pressedClear:" destination="gwx-UJ-d6d" id="4i3-Ne-pwP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="zMN-Jc-Af3" id="25z-CB-BNR"/>
-                        <outlet property="captionTextView" destination="eEy-Fv-qlq" id="unW-e1-U5D"/>
-                        <outlet property="clearButton" destination="Oem-Jg-3aW" id="HFn-46-KSX"/>
-                        <outlet property="photoImageView" destination="hxD-ra-uUy" id="zJd-CU-DJQ"/>
-                        <outlet property="shareButton" destination="bSc-aB-Or4" id="wQR-am-9hN"/>
+                        <outlet property="activityIndicator" destination="zMN-Jc-Af3" id="yTa-qN-D92"/>
+                        <outlet property="captionTextView" destination="eEy-Fv-qlq" id="zMP-T4-L40"/>
+                        <outlet property="clearButton" destination="Oem-Jg-3aW" id="gX4-gA-mrt"/>
+                        <outlet property="photoImageView" destination="hxD-ra-uUy" id="hc5-Og-IF4"/>
+                        <outlet property="shareButton" destination="bSc-aB-Or4" id="QXY-Ya-8kK"/>
                         <segue destination="7wz-pP-V5G" kind="unwind" identifier="unwindToHomeVC" unwindAction="unwindToHome:" id="5vR-hS-tcu"/>
                     </connections>
                 </viewController>

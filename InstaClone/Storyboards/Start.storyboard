@@ -13,7 +13,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="cJm-nQ-4sk">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" id="xrV-8g-f3u" customClass="SignInViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="xrV-8g-f3u" customClass="SignInViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M0Z-xJ-duR"/>
                         <viewControllerLayoutGuide type="bottom" id="ntq-0m-HCA"/>
@@ -57,7 +57,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="pressedSignIn:" destination="xrV-8g-f3u" eventType="touchUpInside" id="lpM-Jl-YoE"/>
+                                            <action selector="pressedSignIn:" destination="xrV-8g-f3u" eventType="touchUpInside" id="Rff-aY-CMl"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -78,7 +78,8 @@
                                     <color key="titleColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressedRegister:" destination="xrV-8g-f3u" eventType="touchUpInside" id="vLV-LY-qmy"/>
+                                    <action selector="pressedRegister:" destination="xrV-8g-f3u" eventType="touchUpInside" id="SCx-r7-i5d"/>
+                                    <segue destination="LMg-wW-noF" kind="show" identifier="ShowSignUp" id="0U7-eN-pxB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo by Aaron Paul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rc6-jk-wXR">
@@ -97,7 +98,7 @@
                                     <color key="titleColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressedRestorePassword:" destination="xrV-8g-f3u" eventType="touchUpInside" id="SqN-VV-XoW"/>
+                                    <action selector="pressedRestorePassword:" destination="xrV-8g-f3u" eventType="touchUpInside" id="p6t-8x-5OU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,11 +125,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="Zij-w0-kpJ"/>
                     <connections>
-                        <outlet property="emailField" destination="SAV-Nt-TEP" id="ybg-6m-2hz"/>
-                        <outlet property="passwordField" destination="Kd2-66-Tj3" id="T8m-hz-xo7"/>
-                        <outlet property="signInButton" destination="IlT-dE-ljp" id="W8v-SH-Q1f"/>
+                        <outlet property="emailField" destination="SAV-Nt-TEP" id="xQp-Ln-PgO"/>
+                        <outlet property="passwordField" destination="Kd2-66-Tj3" id="Uv7-Au-bqo"/>
+                        <outlet property="signInButton" destination="IlT-dE-ljp" id="3vI-Ds-KBf"/>
                         <segue destination="mWa-AF-EN0" kind="presentation" identifier="ShowTabBar" id="2ch-lk-QE7"/>
-                        <segue destination="LMg-wW-noF" kind="showDetail" identifier="ShowSignUp" id="xCL-TH-uYU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0HK-Ng-qfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,7 +147,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="dkY-qo-6mL">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="dkY-qo-6mL">
                                 <rect key="frame" x="123.5" y="52" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="SwO-od-NnO"/>
@@ -164,7 +164,7 @@
                                     <color key="titleColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressedDismiss:" destination="LMg-wW-noF" eventType="touchUpInside" id="2ua-yM-qZE"/>
+                                    <action selector="pressedDismiss:" destination="LMg-wW-noF" eventType="touchUpInside" id="ckY-mB-dlz"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5Sd-sb-Ggu">
@@ -208,12 +208,12 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="pressedSignUp:" destination="LMg-wW-noF" eventType="touchUpInside" id="cT5-j0-Mob"/>
+                                            <action selector="pressedSignUp:" destination="LMg-wW-noF" eventType="touchUpInside" id="ugL-5P-vwG"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jKd-yU-eej">
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jKd-yU-eej">
                                 <rect key="frame" x="169" y="446" width="37" height="37"/>
                                 <color key="color" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -233,18 +233,16 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="jKd-yU-eej" id="czn-iC-mvH"/>
-                        <outlet property="emailField" destination="tGY-Zt-ndy" id="LVK-ZG-emb"/>
-                        <outlet property="passwordField" destination="WFg-L4-0jz" id="xMb-dp-ReL"/>
-                        <outlet property="profileImageView" destination="dkY-qo-6mL" id="UIB-jP-NGJ"/>
-                        <outlet property="userNameField" destination="puA-88-zD6" id="q4K-hZ-4Mp"/>
-                        <segue destination="LhS-8q-lml" kind="unwind" identifier="unwindToSignInVC" unwindAction="unwindToSignIn:" id="kvi-jC-DwN"/>
+                        <outlet property="activityIndicator" destination="jKd-yU-eej" id="VXR-I4-SuG"/>
+                        <outlet property="emailField" destination="tGY-Zt-ndy" id="ddu-Ee-hQz"/>
+                        <outlet property="passwordField" destination="WFg-L4-0jz" id="5ql-Wz-DjR"/>
+                        <outlet property="profileImageView" destination="dkY-qo-6mL" id="CvY-YE-9zf"/>
+                        <outlet property="userNameField" destination="puA-88-zD6" id="CIY-fs-FL7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPn-Yb-hs1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="LhS-8q-lml" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="759" y="830"/>
+            <point key="canvasLocation" x="759" y="923"/>
         </scene>
         <!--TabBarID-->
         <scene sceneID="PPG-mW-Tmk">
