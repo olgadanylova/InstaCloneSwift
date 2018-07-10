@@ -13,7 +13,7 @@
         <!--InstaClone-->
         <scene sceneID="1j4-Cd-Xqe">
             <objects>
-                <viewController id="oCz-LK-P5G" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController id="oCz-LK-P5G" customClass="HomeViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cjd-0w-JPH"/>
                         <viewControllerLayoutGuide type="bottom" id="708-LY-9an"/>
@@ -122,15 +122,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="activityIndicator" destination="WmV-Lc-f0R" id="0h1-1o-C80"/>
-                                            <outlet property="captionLabel" destination="5bY-eB-IHA" id="Gi7-GM-XnA"/>
-                                            <outlet property="commentsButton" destination="xv3-Zz-6l8" id="w9d-4S-TF5"/>
-                                            <outlet property="dateLabel" destination="49N-oN-ToS" id="12k-x9-cKO"/>
-                                            <outlet property="likeCountButton" destination="oaj-xI-QJq" id="xqz-J2-HA9"/>
-                                            <outlet property="likeImageView" destination="h3n-Fn-OeS" id="WU0-8z-7td"/>
-                                            <outlet property="nameLabel" destination="Ceh-RK-QtZ" id="Qp4-jc-I1k"/>
-                                            <outlet property="postImageView" destination="r05-u6-Lvw" id="8PT-dl-maY"/>
-                                            <outlet property="profileImageView" destination="88l-ap-4T1" id="uRQ-Rz-eQn"/>
+                                            <outlet property="activityIndicator" destination="WmV-Lc-f0R" id="Duq-8W-mfx"/>
+                                            <outlet property="captionLabel" destination="5bY-eB-IHA" id="ZwB-Ov-5aG"/>
+                                            <outlet property="commentsButton" destination="xv3-Zz-6l8" id="wAd-vv-YRZ"/>
+                                            <outlet property="dateLabel" destination="49N-oN-ToS" id="Mct-XS-R9H"/>
+                                            <outlet property="likeCountButton" destination="oaj-xI-QJq" id="4HB-CA-qOr"/>
+                                            <outlet property="likeImageView" destination="h3n-Fn-OeS" id="6Cb-cs-82e"/>
+                                            <outlet property="nameLabel" destination="Ceh-RK-QtZ" id="287-A8-h2c"/>
+                                            <outlet property="postImageView" destination="r05-u6-Lvw" id="njM-Q1-LCZ"/>
+                                            <outlet property="profileImageView" destination="88l-ap-4T1" id="V6n-2y-ga6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -153,27 +153,31 @@
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="LCX-Nj-RZY">
                             <color key="tintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="pressedLogout:" destination="oCz-LK-P5G" id="hqg-UM-vSZ"/>
+                                <action selector="pressedLogout:" destination="oCz-LK-P5G" id="uq3-Nn-MXT"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="n4P-Lf-gKX">
                             <connections>
-                                <action selector="pressedRefresh:" destination="oCz-LK-P5G" id="w9l-qW-6xt"/>
+                                <action selector="pressedRefresh:" destination="oCz-LK-P5G" id="mas-XC-Waq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="DKU-uj-1BC" id="5NU-4B-2Am"/>
+                        <outlet property="tableView" destination="DKU-uj-1BC" id="nds-ef-Wja"/>
+                        <segue destination="UBX-BK-zm0" kind="show" identifier="ShowComments" id="8ZI-55-Vao"/>
+                        <segue destination="ixB-e0-UFI" kind="unwind" identifier="unwindToSignIn" unwindAction="unwindToSignIn:" id="QP7-rF-Z6y"/>
+                        <segue destination="xBG-ki-skc" kind="show" identifier="ShowLikes" id="mBN-PF-vLp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28o-Ct-t7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ixB-e0-UFI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3119.1999999999998" y="-935.08245877061472"/>
         </scene>
         <!--Likes-->
         <scene sceneID="ILN-N9-8Qf">
             <objects>
-                <tableViewController storyboardIdentifier="LikesViewController" id="xBG-ki-skc" customClass="LikesViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LikesViewController" id="xBG-ki-skc" customClass="LikesViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qXu-15-0CG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,8 +217,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="ACx-TR-WDZ" id="2M1-CN-V4V"/>
-                                    <outlet property="profileImageView" destination="ZIn-V9-w9f" id="aqz-lf-dDv"/>
+                                    <outlet property="nameLabel" destination="ACx-TR-WDZ" id="wEe-DB-hXm"/>
+                                    <outlet property="profileImageView" destination="ZIn-V9-w9f" id="g1J-OH-nDJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -226,7 +230,7 @@
                     <navigationItem key="navigationItem" title="Likes" id="lcw-ud-l9S">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="crq-N1-eKp">
                             <connections>
-                                <action selector="pressedRefresh:" destination="xBG-ki-skc" id="Wz2-H5-UOQ"/>
+                                <action selector="pressedRefresh:" destination="xBG-ki-skc" id="6vL-2O-DV4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -238,7 +242,7 @@
         <!--Comments-->
         <scene sceneID="lbf-6F-BSd">
             <objects>
-                <viewController storyboardIdentifier="CommentsViewController" id="UBX-BK-zm0" customClass="CommentsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentsViewController" id="UBX-BK-zm0" customClass="CommentsViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MmO-s0-6mT"/>
                         <viewControllerLayoutGuide type="bottom" id="Mg1-Tl-mZj"/>
@@ -303,16 +307,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentLabel" destination="0ug-d7-eSx" id="eBh-DV-Mud"/>
-                                            <outlet property="dateLabel" destination="Aqb-z7-ICT" id="4d5-Qy-EVP"/>
-                                            <outlet property="nameLabel" destination="gOT-A5-Lb9" id="oSZ-dQ-hFo"/>
-                                            <outlet property="profileImageView" destination="J1U-cW-Bze" id="RWe-ez-B7i"/>
+                                            <outlet property="commentLabel" destination="0ug-d7-eSx" id="lGn-GB-HNg"/>
+                                            <outlet property="dateLabel" destination="Aqb-z7-ICT" id="ZHt-O6-Lxp"/>
+                                            <outlet property="nameLabel" destination="gOT-A5-Lb9" id="HXg-hR-SRd"/>
+                                            <outlet property="profileImageView" destination="J1U-cW-Bze" id="GVH-Ja-xWl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="UBX-BK-zm0" id="n1A-Zy-DKA"/>
-                                    <outlet property="delegate" destination="UBX-BK-zm0" id="rRX-iU-ecH"/>
+                                    <outlet property="dataSource" destination="UBX-BK-zm0" id="C7W-Wn-2wf"/>
+                                    <outlet property="delegate" destination="UBX-BK-zm0" id="VgK-dB-ohU"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvw-mw-3wo">
@@ -336,7 +340,7 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="pressedSend:" destination="UBX-BK-zm0" eventType="touchUpInside" id="fui-av-y5t"/>
+                                            <action selector="pressedSend:" destination="UBX-BK-zm0" eventType="touchUpInside" id="D7H-cm-BzB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -366,15 +370,15 @@
                     <navigationItem key="navigationItem" title="Comments" id="AJh-qc-hTT">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="skd-iK-Pze">
                             <connections>
-                                <action selector="pressedRefresh:" destination="UBX-BK-zm0" id="VTl-P7-UaL"/>
+                                <action selector="pressedRefresh:" destination="UBX-BK-zm0" id="u2Q-RQ-cLc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="commentTextField" destination="onT-jW-F7U" id="wcJ-Rf-aLm"/>
-                        <outlet property="sendButton" destination="UrA-t6-wmc" id="o7D-iu-8qn"/>
-                        <outlet property="tableView" destination="fWy-90-yXX" id="x3I-3y-KDp"/>
+                        <outlet property="commentTextField" destination="onT-jW-F7U" id="1pD-T9-r6o"/>
+                        <outlet property="sendButton" destination="UrA-t6-wmc" id="pf1-gN-Xwx"/>
+                        <outlet property="tableView" destination="fWy-90-yXX" id="XdQ-L8-wqD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urF-Nh-18C" userLabel="First Responder" sceneMemberID="firstResponder"/>

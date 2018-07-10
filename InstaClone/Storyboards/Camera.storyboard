@@ -60,7 +60,7 @@
                                     <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressedShare:" destination="gwx-UJ-d6d" eventType="touchUpInside" id="ifQ-wu-TZ7"/>
+                                    <action selector="pressedShare:" destination="gwx-UJ-d6d" eventType="touchUpInside" id="QCb-TO-zFa"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zMN-Jc-Af3">
@@ -84,16 +84,16 @@
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="Oem-Jg-3aW">
                             <color key="tintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="pressedClear:" destination="gwx-UJ-d6d" id="4i3-Ne-pwP"/>
+                                <action selector="pressedClear:" destination="gwx-UJ-d6d" id="f4N-cP-DfR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="zMN-Jc-Af3" id="yTa-qN-D92"/>
-                        <outlet property="captionTextView" destination="eEy-Fv-qlq" id="zMP-T4-L40"/>
-                        <outlet property="clearButton" destination="Oem-Jg-3aW" id="gX4-gA-mrt"/>
-                        <outlet property="photoImageView" destination="hxD-ra-uUy" id="hc5-Og-IF4"/>
-                        <outlet property="shareButton" destination="bSc-aB-Or4" id="QXY-Ya-8kK"/>
+                        <outlet property="activityIndicator" destination="zMN-Jc-Af3" id="Jam-xE-7sA"/>
+                        <outlet property="captionTextView" destination="eEy-Fv-qlq" id="bWC-eu-G2w"/>
+                        <outlet property="clearButton" destination="Oem-Jg-3aW" id="7Ay-AM-RVh"/>
+                        <outlet property="photoImageView" destination="hxD-ra-uUy" id="5FG-SL-Na2"/>
+                        <outlet property="shareButton" destination="bSc-aB-Or4" id="6pw-dg-HD7"/>
                         <segue destination="7wz-pP-V5G" kind="unwind" identifier="unwindToHomeVC" unwindAction="unwindToHome:" id="5vR-hS-tcu"/>
                     </connections>
                 </viewController>

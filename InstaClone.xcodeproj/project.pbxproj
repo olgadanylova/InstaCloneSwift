@@ -28,6 +28,9 @@
 		5A8990E520EF945500FC601C /* PostViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8990E420EF945500FC601C /* PostViewContoller.swift */; };
 		5A8990E720EF9A7400FC601C /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8990E620EF9A7400FC601C /* AlertViewController.swift */; };
 		5A8990E920EFA92200FC601C /* PostCaptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8990E820EFA92200FC601C /* PostCaptionCell.swift */; };
+		5ABD2DFC20F4AF8200A2B41C /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD2DFB20F4AF8200A2B41C /* LikesViewController.swift */; };
+		5ABD2E0020F4DCC700A2B41C /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD2DFF20F4DCC700A2B41C /* CommentsViewController.swift */; };
+		5ABD2E0220F4F4B900A2B41C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD2E0120F4F4B900A2B41C /* ProfileViewController.swift */; };
 		5E94A8FA20F3333400F6F8C2 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94A8F920F3333400F6F8C2 /* SignInViewController.swift */; };
 		5E94A8FC20F3657200F6F8C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94A8FB20F3657200F6F8C2 /* SignUpViewController.swift */; };
 		5E94A8FE20F3880000F6F8C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94A8FD20F3880000F6F8C2 /* HomeViewController.swift */; };
@@ -58,6 +61,9 @@
 		5A8990E420EF945500FC601C /* PostViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewContoller.swift; sourceTree = "<group>"; };
 		5A8990E620EF9A7400FC601C /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		5A8990E820EFA92200FC601C /* PostCaptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCaptionCell.swift; sourceTree = "<group>"; };
+		5ABD2DFB20F4AF8200A2B41C /* LikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewController.swift; sourceTree = "<group>"; };
+		5ABD2DFF20F4DCC700A2B41C /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		5ABD2E0120F4F4B900A2B41C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5E94A8F920F3333400F6F8C2 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5E94A8FB20F3657200F6F8C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5E94A8FD20F3880000F6F8C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +158,9 @@
 				5E94A8FB20F3657200F6F8C2 /* SignUpViewController.swift */,
 				5E94A8FD20F3880000F6F8C2 /* HomeViewController.swift */,
 				5E94A8FF20F39C0D00F6F8C2 /* CameraViewController.swift */,
+				5ABD2DFB20F4AF8200A2B41C /* LikesViewController.swift */,
+				5ABD2DFF20F4DCC700A2B41C /* CommentsViewController.swift */,
+				5ABD2E0120F4F4B900A2B41C /* ProfileViewController.swift */,
 				5A8990D920EF6DB900FC601C /* ProfileHeaderCollectionReusableView.swift */,
 				5A8990E420EF945500FC601C /* PostViewContoller.swift */,
 			);
@@ -305,10 +314,13 @@
 			files = (
 				5E94A8FA20F3333400F6F8C2 /* SignInViewController.swift in Sources */,
 				5A8990E520EF945500FC601C /* PostViewContoller.swift in Sources */,
+				5ABD2E0220F4F4B900A2B41C /* ProfileViewController.swift in Sources */,
 				5A8990DC20EF726600FC601C /* PhotoCollectionViewCell.swift in Sources */,
 				5E94A90020F39C0D00F6F8C2 /* CameraViewController.swift in Sources */,
 				5A00862320EF53DC0005FEF7 /* PictureHelper.swift in Sources */,
+				5ABD2DFC20F4AF8200A2B41C /* LikesViewController.swift in Sources */,
 				5A00860320EF4C970005FEF7 /* AppDelegate.swift in Sources */,
+				5ABD2E0020F4DCC700A2B41C /* CommentsViewController.swift in Sources */,
 				5A8990DA20EF6DB900FC601C /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				5A8990E920EFA92200FC601C /* PostCaptionCell.swift in Sources */,
 				5A8990E120EF737600FC601C /* Comment.swift in Sources */,

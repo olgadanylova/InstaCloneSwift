@@ -13,7 +13,7 @@
         <!--Profile-->
         <scene sceneID="G8D-Q4-WWE">
             <objects>
-                <viewController id="lML-pR-ase" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController id="lML-pR-ase" customClass="ProfileViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Pk-oo-enZ"/>
                         <viewControllerLayoutGuide type="bottom" id="zTB-xn-lDd"/>
@@ -32,7 +32,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="Znk-rc-kbu" customClass="PhotoCollectionViewCell" customModule="InstaClone" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="Znk-rc-kbu">
                                         <rect key="frame" x="0.0" y="223" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -51,7 +51,7 @@
                                             <constraint firstItem="gg5-io-WZE" firstAttribute="leading" secondItem="Znk-rc-kbu" secondAttribute="leading" id="oX8-q3-Ojm"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="photoImageView" destination="gg5-io-WZE" id="moJ-vR-wxh"/>
+                                            <outlet property="photoImageView" destination="gg5-io-WZE" id="eAU-jk-hA9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -90,8 +90,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="pressedEditProfile:" destination="Cdz-Zu-gVQ" eventType="touchUpInside" id="BDj-Ud-fR2"/>
-                                                        <segue destination="RVU-3E-qID" kind="show" id="cn9-oG-vbh"/>
+                                                        <segue destination="RVU-3E-qID" kind="show" id="EVB-DX-XV0"/>
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xT8-j1-GnX">
@@ -161,8 +160,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="9bs-Jh-NBC" secondAttribute="trailing" id="pBm-Ia-r0G"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h98-uY-ne9">
-                                            <rect key="frame" x="15" y="130" width="43.5" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h98-uY-ne9">
+                                            <rect key="frame" x="15" y="130" width="82" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -178,11 +177,11 @@
                                         <constraint firstItem="RRC-MJ-kLW" firstAttribute="leading" secondItem="Cdz-Zu-gVQ" secondAttribute="leading" constant="15" id="gti-uk-0Rh"/>
                                     </constraints>
                                     <connections>
-                                        <outlet property="followersCountLabel" destination="AD3-G0-71a" id="lQX-jO-APZ"/>
-                                        <outlet property="followingCountLabel" destination="M7Y-ug-tcR" id="qMn-ix-d5f"/>
-                                        <outlet property="nameLabel" destination="h98-uY-ne9" id="2iV-ao-Wdp"/>
-                                        <outlet property="postsCountLabel" destination="y7X-8C-pmG" id="IMB-fe-R0r"/>
-                                        <outlet property="profileImageView" destination="RRC-MJ-kLW" id="g4R-f1-CMj"/>
+                                        <outlet property="followersCountLabel" destination="AD3-G0-71a" id="q2j-BT-Ovu"/>
+                                        <outlet property="followingCountLabel" destination="M7Y-ug-tcR" id="leo-3X-HSI"/>
+                                        <outlet property="nameLabel" destination="h98-uY-ne9" id="5z4-lg-5ev"/>
+                                        <outlet property="postsCountLabel" destination="y7X-8C-pmG" id="7fE-em-OcX"/>
+                                        <outlet property="profileImageView" destination="RRC-MJ-kLW" id="Wnk-2E-XvV"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
@@ -203,12 +202,12 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="qx8-yW-aiK"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="PaK-Ok-Hww">
                             <connections>
-                                <action selector="pressedRefresh:" destination="lML-pR-ase" id="PYx-Ff-C1p"/>
+                                <action selector="pressedRefresh:" destination="lML-pR-ase" id="tMY-Zi-Fqy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="JMc-Zl-BQS" id="qpO-Jk-7kh"/>
+                        <outlet property="collectionView" destination="JMc-Zl-BQS" id="mrq-s2-5kq"/>
                         <segue destination="GBj-4F-FZ6" kind="show" identifier="ShowPost" id="qIQ-W5-3km"/>
                     </connections>
                 </viewController>
@@ -219,7 +218,7 @@
         <!--Edit profile-->
         <scene sceneID="iYd-sc-LAE">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="RVU-3E-qID" customClass="EditProfileViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="RVU-3E-qID" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Tv-xK-oOw"/>
                         <viewControllerLayoutGuide type="bottom" id="wc6-ps-KJg"/>
@@ -262,9 +261,6 @@
                                         <state key="normal" title="Save">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="pressedSave:" destination="RVU-3E-qID" eventType="touchUpInside" id="hX5-gE-Rdl"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiA-6U-gCh">
                                         <rect key="frame" x="0.0" y="154.5" width="343" height="44"/>
@@ -276,9 +272,6 @@
                                         <state key="normal" title="Restore password">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="pressedRestorePassword:" destination="RVU-3E-qID" eventType="touchUpInside" id="TRZ-ce-mI9"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -302,16 +295,10 @@
                     <navigationItem key="navigationItem" title="Edit profile" id="Ve3-xI-LQB">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fQb-Eh-r06">
                             <connections>
-                                <action selector="pressedCancel:" destination="RVU-3E-qID" id="bjU-Ha-tZh"/>
                                 <segue destination="YXw-6m-NDB" kind="unwind" identifier="unwindToProfileVC" unwindAction="unwindToProfile:" id="RIb-wX-wa8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="activityIndicator" destination="mpI-iW-fEh" id="n5G-84-7e7"/>
-                        <outlet property="profileImageView" destination="5tt-w8-zNR" id="0un-I9-j8G"/>
-                        <outlet property="userNameField" destination="1hI-Ik-KAw" id="2Tm-g6-17c"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jad-AJ-l2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YXw-6m-NDB" userLabel="Exit" sceneMemberID="exit"/>
@@ -347,16 +334,16 @@
             </objects>
             <point key="canvasLocation" x="2181.5999999999999" y="2089.2053973013494"/>
         </scene>
-        <!--Post View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="cH9-2c-MRz">
             <objects>
-                <tableViewController storyboardIdentifier="PostViewController" id="GBj-4F-FZ6" customClass="PostViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PostViewController" id="GBj-4F-FZ6" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jCQ-mA-y0B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostPhotoCell" rowHeight="450" id="eoU-uI-91D" customClass="PostCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostPhotoCell" rowHeight="450" id="eoU-uI-91D">
                                 <rect key="frame" x="0.0" y="28" width="375" height="450"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eoU-uI-91D" id="7ss-CJ-2tY">
@@ -473,7 +460,7 @@
                                     <outlet property="likeImageView" destination="X5A-bn-P9K" id="pPW-j1-B9f"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCaptionCell" id="dfn-od-quG" customClass="PostCaptionCell" customModule="InstaClone" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCaptionCell" id="dfn-od-quG" customClass="PostCaptionCell">
                                 <rect key="frame" x="0.0" y="561" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dfn-od-quG" id="UIQ-Vv-IQR">
@@ -495,7 +482,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="captionTextView" destination="spU-sQ-aX2" id="n4l-r4-twr"/>
+                                    <outlet property="captionTextView" destination="spU-sQ-aX2" id="M7x-cu-9qQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

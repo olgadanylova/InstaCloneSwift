@@ -3,6 +3,7 @@ import UIKit
 
 class PostViewContoller: UITableViewController {
     
+    var post: Post?
     var editMode = false
 
     override func viewDidLoad() {

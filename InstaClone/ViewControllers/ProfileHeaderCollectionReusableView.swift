@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ProfileHeaderCollectionReusableView: UICollectionReusableView {
+class ProfileHeaderCollectionReusableView: UICollectionReusableView, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -9,8 +9,14 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
     
-    var user: BackendlessUser?
+    var user: BackendlessUser? {
+        didSet {
+            updateView()
+        }
+    }
     
-    @IBAction func pressedEditProfile(_ sender: Any) {
+    private func updateView() {
+        nameLabel.text = user?.name as String?
+        PictureHelper.sharedInstance.setProfilePicture(user?.getProperty("profilePicture") as! String, self)
     }
 }

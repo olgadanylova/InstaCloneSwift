@@ -22,8 +22,7 @@ class PostCell: UITableViewCell {
     private let LIKE = "like"
     private let LIKE_SELECTED = "likeSelected"
     private var postStore: IDataStore?
-    private var likeStore: IDataStore?
-    
+    private var likeStore: IDataStore?    
 
     override func awakeFromNib() {
         super.awakeFromNib()
