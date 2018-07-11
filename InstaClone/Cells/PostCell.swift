@@ -74,5 +74,8 @@ class PostCell: UITableViewCell {
     func changeLikesButtonTitle() {
         likeCountButton.setTitle(String(format: "%li Likes", likesCount), for: .normal)
     }
+    
+    @IBAction func pressedEdit(_ sender: Any) {
+    }
 }
 

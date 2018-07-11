@@ -218,7 +218,7 @@
         <!--Edit profile-->
         <scene sceneID="iYd-sc-LAE">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="RVU-3E-qID" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="RVU-3E-qID" customClass="EditProfileViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Tv-xK-oOw"/>
                         <viewControllerLayoutGuide type="bottom" id="wc6-ps-KJg"/>
@@ -227,7 +227,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="5tt-w8-zNR">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="5tt-w8-zNR">
                                 <rect key="frame" x="123" y="96" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="cxb-co-eCY"/>
@@ -261,6 +261,9 @@
                                         <state key="normal" title="Save">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pressedSave:" destination="RVU-3E-qID" eventType="touchUpInside" id="4hv-Rd-Kj6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiA-6U-gCh">
                                         <rect key="frame" x="0.0" y="154.5" width="343" height="44"/>
@@ -272,6 +275,9 @@
                                         <state key="normal" title="Restore password">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pressedRestorePassword:" destination="RVU-3E-qID" eventType="touchUpInside" id="v8z-SR-v0O"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -295,10 +301,16 @@
                     <navigationItem key="navigationItem" title="Edit profile" id="Ve3-xI-LQB">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fQb-Eh-r06">
                             <connections>
+                                <action selector="pressedCancel:" destination="RVU-3E-qID" id="Qoq-jW-5CD"/>
                                 <segue destination="YXw-6m-NDB" kind="unwind" identifier="unwindToProfileVC" unwindAction="unwindToProfile:" id="RIb-wX-wa8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="mpI-iW-fEh" id="Tcr-aN-c9y"/>
+                        <outlet property="profileImageView" destination="5tt-w8-zNR" id="NTW-5T-hlc"/>
+                        <outlet property="userNameField" destination="1hI-Ik-KAw" id="wgf-G6-tWd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jad-AJ-l2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YXw-6m-NDB" userLabel="Exit" sceneMemberID="exit"/>
@@ -334,16 +346,16 @@
             </objects>
             <point key="canvasLocation" x="2181.5999999999999" y="2089.2053973013494"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Post View Contoller-->
         <scene sceneID="cH9-2c-MRz">
             <objects>
-                <tableViewController storyboardIdentifier="PostViewController" id="GBj-4F-FZ6" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PostViewController" id="GBj-4F-FZ6" customClass="PostViewContoller" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jCQ-mA-y0B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostPhotoCell" rowHeight="450" id="eoU-uI-91D">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostPhotoCell" rowHeight="450" id="eoU-uI-91D" customClass="PostCell" customModule="InstaClone" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="450"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eoU-uI-91D" id="7ss-CJ-2tY">
@@ -374,7 +386,7 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <action selector="pressedEdit:" destination="eoU-uI-91D" eventType="touchUpInside" id="beQ-Z9-BMa"/>
+                                                <action selector="pressedEdit:" destination="eoU-uI-91D" eventType="touchUpInside" id="lb5-Ln-wZ5"/>
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9w2-tZ-Ysj">

@@ -17,6 +17,7 @@
 		5A00861D20EF51860005FEF7 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A00861820EF51860005FEF7 /* TabBar.storyboard */; };
 		5A00861E20EF51860005FEF7 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A00861920EF51860005FEF7 /* Camera.storyboard */; };
 		5A00862320EF53DC0005FEF7 /* PictureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00862220EF53DC0005FEF7 /* PictureHelper.swift */; };
+		5A71945220F5EAAA0057D5E4 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A71945120F5EAAA0057D5E4 /* EditProfileViewController.swift */; };
 		5A8990D320EF5EB400FC601C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8990D220EF5EB400FC601C /* PostCell.swift */; };
 		5A8990D520EF5FB400FC601C /* LikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8990D420EF5FB400FC601C /* LikeCell.swift */; };
 		5A8990D720EF602D00FC601C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8990D620EF602D00FC601C /* CommentCell.swift */; };
@@ -50,6 +51,7 @@
 		5A00861820EF51860005FEF7 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		5A00861920EF51860005FEF7 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		5A00862220EF53DC0005FEF7 /* PictureHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureHelper.swift; sourceTree = "<group>"; };
+		5A71945120F5EAAA0057D5E4 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		5A8990D220EF5EB400FC601C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		5A8990D420EF5FB400FC601C /* LikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCell.swift; sourceTree = "<group>"; };
 		5A8990D620EF602D00FC601C /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				5ABD2DFF20F4DCC700A2B41C /* CommentsViewController.swift */,
 				5ABD2E0120F4F4B900A2B41C /* ProfileViewController.swift */,
 				5A8990D920EF6DB900FC601C /* ProfileHeaderCollectionReusableView.swift */,
+				5A71945120F5EAAA0057D5E4 /* EditProfileViewController.swift */,
 				5A8990E420EF945500FC601C /* PostViewContoller.swift */,
 			);
 			path = ViewControllers;
@@ -332,6 +335,7 @@
 				5A8990D320EF5EB400FC601C /* PostCell.swift in Sources */,
 				5A8990D720EF602D00FC601C /* CommentCell.swift in Sources */,
 				5A8990E320EF737D00FC601C /* Likee.swift in Sources */,
+				5A71945220F5EAAA0057D5E4 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

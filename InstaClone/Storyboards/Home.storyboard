@@ -127,10 +127,10 @@
                                             <outlet property="commentsButton" destination="xv3-Zz-6l8" id="wAd-vv-YRZ"/>
                                             <outlet property="dateLabel" destination="49N-oN-ToS" id="Mct-XS-R9H"/>
                                             <outlet property="likeCountButton" destination="oaj-xI-QJq" id="4HB-CA-qOr"/>
-                                            <outlet property="likeImageView" destination="h3n-Fn-OeS" id="6Cb-cs-82e"/>
-                                            <outlet property="nameLabel" destination="Ceh-RK-QtZ" id="287-A8-h2c"/>
-                                            <outlet property="postImageView" destination="r05-u6-Lvw" id="njM-Q1-LCZ"/>
-                                            <outlet property="profileImageView" destination="88l-ap-4T1" id="V6n-2y-ga6"/>
+                                            <outlet property="likeImageView" destination="h3n-Fn-OeS" id="TX0-ls-FD5"/>
+                                            <outlet property="nameLabel" destination="Ceh-RK-QtZ" id="1J2-E1-hfI"/>
+                                            <outlet property="postImageView" destination="r05-u6-Lvw" id="qaj-7S-GWU"/>
+                                            <outlet property="profileImageView" destination="88l-ap-4T1" id="fol-VJ-fLo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
