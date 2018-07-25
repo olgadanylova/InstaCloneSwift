@@ -11,8 +11,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     private let API_KEY = "77CCF20A-A5AB-FF09-FFFC-710027274900"
     private let HOST_URL = "http://api.backendless.com"
     
-    private var timer: Timer?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.delegate = self
@@ -22,7 +20,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         Backendless.sharedInstance().hostURL = HOST_URL
         Backendless.sharedInstance().initApp(APP_ID, apiKey: API_KEY)
         if (Backendless.sharedInstance().userService.isValidUserToken() && Backendless.sharedInstance().userService.currentUser != nil) {
-            timer = Timer(timeInterval: 0.1, target: self, selector: #selector(showTabBar), userInfo: nil, repeats: false)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.showTabBar()
+            })
         }
         else {
             Backendless.sharedInstance().userService.logout({
@@ -51,7 +51,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    @objc func showTabBar() {
+    @IBAction func showTabBar() {
         performSegue(withIdentifier: "ShowTabBar", sender: nil)
     }
     

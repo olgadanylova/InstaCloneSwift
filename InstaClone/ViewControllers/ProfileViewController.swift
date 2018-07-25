@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITabBarControllerDelegate {
+class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITabBarControllerDelegate, UICollectionViewDelegateFlowLayout {
     
     private var totalUsersCount = 0
     var posts: [Post]?
@@ -60,7 +60,9 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ProfileHeaderCollectionReusableView", for: indexPath) as! ProfileHeaderCollectionReusableView
         headerViewCell.user = Backendless.sharedInstance().userService.currentUser
-        headerViewCell.postsCountLabel.text = String(format: "%lu", (posts?.count)!)
+        if (posts != nil) {
+            headerViewCell.postsCountLabel.text = String(format: "%lu", (posts?.count)!)
+        }        
         if (totalUsersCount > 0) {
             headerViewCell.followingCountLabel.text = String(format: "%li", totalUsersCount - 1)
             headerViewCell.followersCountLabel.text = String(format: "%li", totalUsersCount - 1)
@@ -72,11 +74,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         return CGSize(width: collectionView.frame.size.width / 3 - 1, height: collectionView.frame.size.width / 3 - 1)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 2
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
@@ -105,32 +107,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
-    @IBAction func unwindToSignIn(segue:UIStoryboardSegue) {
+    @IBAction func unwindToProfile(segue:UIStoryboardSegue) {
         getUserPosts()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

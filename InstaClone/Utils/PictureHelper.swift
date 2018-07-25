@@ -22,16 +22,16 @@ class PictureHelper: NSObject {
                     }
                 }
             }
-        }
-        DispatchQueue.main.sync {
-            if (cell.isKind(of: PostCell.ofClass())) {
-                (cell as! PostCell).profileImageView.image = image
-            }
-            else if (cell.isKind(of: LikeCell.ofClass())) {
-                (cell as! LikeCell).profileImageView.image = image
-            }
-            else if (cell.isKind(of: CommentCell.ofClass())) {
-                (cell as! CommentCell).profileImageView.image = image
+            DispatchQueue.main.async {
+                if (cell.isKind(of: PostCell.ofClass())) {
+                    (cell as! PostCell).profileImageView.image = image
+                }
+                else if (cell.isKind(of: LikeCell.ofClass())) {
+                    (cell as! LikeCell).profileImageView.image = image
+                }
+                else if (cell.isKind(of: CommentCell.ofClass())) {
+                    (cell as! CommentCell).profileImageView.image = image
+                }
             }
         }
     }
@@ -52,7 +52,7 @@ class PictureHelper: NSObject {
                     }
                 }
             }
-            DispatchQueue.main.sync {
+            DispatchQueue.main.async {
                 if (header.isKind(of: ProfileHeaderCollectionReusableView.ofClass())) {
                     (header as! ProfileHeaderCollectionReusableView).profileImageView.image = image
                 }
@@ -76,7 +76,7 @@ class PictureHelper: NSObject {
                     }
                 }
             }
-            DispatchQueue.main.sync {
+            DispatchQueue.main.async {
                 imageView.image = image
             }
         }
@@ -91,7 +91,7 @@ class PictureHelper: NSObject {
                     image = self.getImageFromUserDefaults(photo)
                 }
                 else {
-                    DispatchQueue.main.sync {
+                    DispatchQueue.main.async {
                         postCell.postImageView.image = nil
                         postCell.activityIndicator.isHidden = false
                         postCell.activityIndicator.startAnimating()
@@ -105,7 +105,7 @@ class PictureHelper: NSObject {
                         }
                     }
                 }
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     postCell.postImageView.image = image
                     postCell.activityIndicator.stopAnimating()
                 }
@@ -114,7 +114,7 @@ class PictureHelper: NSObject {
         else if (cell.isKind(of: PhotoCollectionViewCell.ofClass())) {
             let collectionViewCell = cell as! PhotoCollectionViewCell
             DispatchQueue.global().async {
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     collectionViewCell.photoImageView.image = nil
                 }
                 var image: UIImage?
@@ -131,7 +131,7 @@ class PictureHelper: NSObject {
                         }
                     }
                 }
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     collectionViewCell.photoImageView.image = image
                 }
             }
@@ -195,9 +195,9 @@ class PictureHelper: NSObject {
             transform = transform.scaledBy(x: -1, y: 1);
         }
         let context: CGContext = CGContext(data: nil, width: Int(image.size.width), height: Int(image.size.height),
-                                      bitsPerComponent: image.cgImage!.bitsPerComponent, bytesPerRow: 0,
-                                      space: image.cgImage!.colorSpace!,
-                                      bitmapInfo: image.cgImage!.bitmapInfo.rawValue)!
+                                           bitsPerComponent: image.cgImage!.bitsPerComponent, bytesPerRow: 0,
+                                           space: image.cgImage!.colorSpace!,
+                                           bitmapInfo: image.cgImage!.bitmapInfo.rawValue)!
         context.concatenate(transform)
         if (image.imageOrientation == UIImageOrientation.left ||
             image.imageOrientation == UIImageOrientation.leftMirrored ||
@@ -214,15 +214,25 @@ class PictureHelper: NSObject {
     
     func saveImageToUserDefaults(_ image: UIImage?, _ key: String) {
         if (image != nil) {
-            var data = UserDefaults.standard.object(forKey: IMAGES_KEY)
-            var images: [String : Any]?
-            images = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as? [String : Any]
-            if (images == nil) {
-                images = [String : Any]()
+            if var data = UserDefaults.standard.object(forKey: IMAGES_KEY) {
+                if var images = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as? [String : Any] {
+                    images[key] = image
+                    data = NSKeyedArchiver.archivedData(withRootObject: images)
+                    UserDefaults.standard.set(data, forKey: IMAGES_KEY)
+                    UserDefaults.standard.synchronize()
+                }
+                else {
+                    var images = [String : Any]()
+                    images[key] = image
+                    data = NSKeyedArchiver.archivedData(withRootObject: images)
+                    UserDefaults.standard.set(data, forKey: IMAGES_KEY)
+                    UserDefaults.standard.synchronize()
+                }
             }
-            if (images![key] == nil) {
-                images![key] = image
-                data = NSKeyedArchiver.archivedData(withRootObject: images!)
+            else {
+                var images = [String : Any]()
+                images[key] = image
+                let data = NSKeyedArchiver.archivedData(withRootObject: images)
                 UserDefaults.standard.set(data, forKey: IMAGES_KEY)
                 UserDefaults.standard.synchronize()
             }
@@ -239,10 +249,12 @@ class PictureHelper: NSObject {
     }
     
     func getImageFromUserDefaults(_ key: String) -> UIImage? {
-        let data = UserDefaults.standard.object(forKey: IMAGES_KEY)
-        var images = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as? [String : Any]
-        if (images != nil) {
-            return (images?[key] as! UIImage)
+        if let data = UserDefaults.standard.object(forKey: IMAGES_KEY) {
+            if let images = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as? [String : Any] {
+                if let image = images[key] as? UIImage {
+                    return image
+                }                
+            }
         }
         return nil
     }
