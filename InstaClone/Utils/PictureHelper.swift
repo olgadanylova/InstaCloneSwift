@@ -107,7 +107,9 @@ class PictureHelper: NSObject {
                 }
                 DispatchQueue.main.async {
                     postCell.postImageView.image = image
-                    postCell.activityIndicator.stopAnimating()
+                    if (postCell.activityIndicator != nil) {
+                        postCell.activityIndicator.stopAnimating()
+                    }                    
                 }
             }
         }

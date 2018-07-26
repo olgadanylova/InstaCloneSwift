@@ -94,7 +94,7 @@
                         <outlet property="clearButton" destination="Oem-Jg-3aW" id="7Ay-AM-RVh"/>
                         <outlet property="photoImageView" destination="hxD-ra-uUy" id="5FG-SL-Na2"/>
                         <outlet property="shareButton" destination="bSc-aB-Or4" id="6pw-dg-HD7"/>
-                        <segue destination="7wz-pP-V5G" kind="unwind" identifier="unwindToHomeVC" unwindAction="unwindToHome:" id="5vR-hS-tcu"/>
+                        <segue destination="7wz-pP-V5G" kind="unwind" identifier="unwindToHomeVC" unwindAction="unwindToHomeWithSegue:" id="FiN-jC-Wza"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBi-iY-ec0" userLabel="First Responder" sceneMemberID="firstResponder"/>

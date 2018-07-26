@@ -238,7 +238,7 @@
                         <outlet property="passwordField" destination="WFg-L4-0jz" id="Gt7-PU-EiE"/>
                         <outlet property="profileImageView" destination="dkY-qo-6mL" id="V34-06-HEf"/>
                         <outlet property="userNameField" destination="puA-88-zD6" id="yIE-Pe-7LB"/>
-                        <segue destination="LhS-8q-lml" kind="unwind" identifier="unwindToSignInVC" unwindAction="unwindToSignIn:" id="kvi-jC-DwN"/>
+                        <segue destination="LhS-8q-lml" kind="unwind" identifier="unwindToSignInVC" unwindAction="unwindToSignInSegue:" id="BQs-p1-bG1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPn-Yb-hs1" userLabel="First Responder" sceneMemberID="firstResponder"/>

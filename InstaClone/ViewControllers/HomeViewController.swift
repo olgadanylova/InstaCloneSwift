@@ -90,6 +90,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ShowLikes") {
+            if let cell = (sender as! UIButton).superview?.superview as? PostCell {
+                let indexPath = tableView.indexPath(for: cell)
+                let likesVC = segue.destination as! LikesViewController
+                likesVC.post = posts?[(indexPath?.row)!]
+                likesVC.tableView.reloadData()
+            }
+        }
+        else if (segue.identifier == "ShowComments") {
+            if let cell = (sender as! UIButton).superview?.superview as? PostCell {
+                let indexPath = tableView.indexPath(for: cell)
+                let commentsVC = segue.destination as! CommentsViewController
+                commentsVC.post = posts?[(indexPath?.row)!]
+//                commentsVC.tableView.reloadData()
+            }
+        }
+    }
+    
     @IBAction func pressedLogout(_ sender: Any) {
         Backendless.sharedInstance().userService.logout({
             self.performSegue(withIdentifier: "unwindToSignIn", sender: nil)

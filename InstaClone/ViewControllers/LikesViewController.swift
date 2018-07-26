@@ -25,7 +25,7 @@ class LikesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LikeCell", for: indexPath) as! LikeCell
         let like = post?.likes![indexPath.row]
         Backendless.sharedInstance().userService.find(byId: like?.ownerId, response: { user in
-            cell.nameLabel.text = String(format: "%@ liked your photo", (user?.name)!)
+            cell.nameLabel.text = String(format: "%@ liked this photo", (user?.name)!)
             PictureHelper.sharedInstance.setProfilePicture(user?.getProperty("profilePicture") as! String, cell)
         }, error: { fault in
             AlertViewController.sharedInstance.showErrorAlert(fault!.message, self)

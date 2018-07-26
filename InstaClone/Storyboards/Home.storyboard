@@ -202,8 +202,8 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName liked your photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACx-TR-WDZ">
-                                            <rect key="frame" x="74" y="24" width="206" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName liked this photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACx-TR-WDZ">
+                                            <rect key="frame" x="74" y="24" width="200" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -378,7 +378,7 @@
                     <connections>
                         <outlet property="commentTextField" destination="onT-jW-F7U" id="1pD-T9-r6o"/>
                         <outlet property="sendButton" destination="UrA-t6-wmc" id="pf1-gN-Xwx"/>
-                        <outlet property="tableView" destination="fWy-90-yXX" id="XdQ-L8-wqD"/>
+                        <outlet property="tableView" destination="fWy-90-yXX" id="msw-Eu-b1s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urF-Nh-18C" userLabel="First Responder" sceneMemberID="firstResponder"/>

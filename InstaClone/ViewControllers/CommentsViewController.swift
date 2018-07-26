@@ -10,7 +10,7 @@ class CommentsViewController: UIViewController, UITabBarDelegate, UITableViewDel
     var post: Post?
     private var postStore: IDataStore?
     private var commentStore: IDataStore?
-    private var comments: [Comment]?
+    //private var comments: [Comment]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,15 +77,15 @@ class CommentsViewController: UIViewController, UITabBarDelegate, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
-        comments?.sort(by: { $0.created! > $1.created! })
-        let comment = comments![indexPath.row]
-        Backendless.sharedInstance().userService.find(byId: comment.ownerId, response: { user in
+        post?.comments?.sort(by: { $0.created! > $1.created! })
+        let comment = post?.comments![indexPath.row]
+        Backendless.sharedInstance().userService.find(byId: comment?.ownerId, response: { user in
             PictureHelper.sharedInstance.setProfilePicture(user?.getProperty("profilePicture") as! String, cell)
             cell.nameLabel.text = user?.name as String?
-            cell.commentLabel.text = comment.text
+            cell.commentLabel.text = comment?.text
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm yyyy/MM/dd"
-            cell.dateLabel.text = formatter.string(from: comment.created!)
+            cell.dateLabel.text = formatter.string(from: (comment?.created!)!)
         }, error: { fault in
             AlertViewController.sharedInstance.showErrorAlert(fault!.message, self)
         })
@@ -98,8 +98,8 @@ class CommentsViewController: UIViewController, UITabBarDelegate, UITableViewDel
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            let comment = comments![indexPath.row]
-            if (comment.ownerId == Backendless.sharedInstance().userService.currentUser.objectId as String ||
+            let comment = post?.comments![indexPath.row]
+            if (comment?.ownerId == Backendless.sharedInstance().userService.currentUser.objectId as String ||
                 post?.ownerId == Backendless.sharedInstance().userService.currentUser.objectId as String) {
                 commentStore?.remove(commentStore, response: { removed in
                 self.reloadTableData()

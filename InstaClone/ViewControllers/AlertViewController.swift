@@ -96,7 +96,7 @@ class AlertViewController: UIViewController {
                 postVC.navigationItem.title = "Edit post"
                 let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: postVC, action: #selector(postVC.pressedCancel(_:)))
                 postVC.navigationItem.leftBarButtonItem = cancelButton
-                let saveButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: postVC, action: #selector(postVC.pressedSave(_:)))
+                let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: postVC, action: #selector(postVC.pressedSave(_:)))
                 postVC.navigationItem.rightBarButtonItem = saveButton
                 
             }

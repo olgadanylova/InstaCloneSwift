@@ -26,12 +26,14 @@ class PostCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        activityIndicator.isHidden = true
-        let likeTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLikeTap))
-        likeImageView.addGestureRecognizer(likeTapGesture)
-        likeImageView.isUserInteractionEnabled = true
-        postStore = Backendless.sharedInstance().data.of(Post.ofClass())
-        likeStore = Backendless.sharedInstance().data.of(Likee.ofClass())
+        if (activityIndicator != nil && likeImageView != nil) {
+            activityIndicator.isHidden = true
+            let likeTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLikeTap))
+            likeImageView.addGestureRecognizer(likeTapGesture)
+            likeImageView.isUserInteractionEnabled = true
+            postStore = Backendless.sharedInstance().data.of(Post.ofClass())
+            likeStore = Backendless.sharedInstance().data.of(Likee.ofClass())
+        }        
     }
     
      @IBAction func handleLikeTap() {
@@ -76,6 +78,7 @@ class PostCell: UITableViewCell {
     }
     
     @IBAction func pressedEdit(_ sender: Any) {
+        AlertViewController.sharedInstance.showEditAlert(post!, postViewController!)
     }
 }
 

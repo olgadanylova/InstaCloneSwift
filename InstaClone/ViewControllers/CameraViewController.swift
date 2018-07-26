@@ -73,7 +73,7 @@ class CameraViewController: UIViewController, UITextViewDelegate, UINavigationCo
     }
     
     func share() {
-        if (shareButton.titleLabel?.text == TAKE_PHOTO) {
+        if (shareButton.titleLabel?.text != TAKE_PHOTO) {
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
             let photoFileName = String(format: "/InstaCloneProfilePictures/%@.png", UUID().uuidString)

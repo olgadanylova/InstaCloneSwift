@@ -67,6 +67,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UINaviga
     }
     
     @IBAction func pressedCancel(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToProfileVC", sender: nil)
     }
     
     @IBAction func pressedRestorePassword(_ sender: Any) {
@@ -83,7 +84,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UINaviga
         if (profileImageChanged) {
             var profilePicture = currentUser?.getProperty("profilePicture") as! String
             if let range = profilePicture.range(of: "InstaCloneProfilePictures") {
-                profilePicture = String(profilePicture[range.upperBound...])
+                profilePicture = String(profilePicture[range.lowerBound...])
                 Backendless.sharedInstance().file.remove(profilePicture, response: {
                     PictureHelper.sharedInstance.removeImageFromUserDefaults(profilePicture)
                     let profileImageFileName = String(format: "/InstaCloneProfilePictures/%@.png", UUID().uuidString)
@@ -114,20 +115,3 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UINaviga
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

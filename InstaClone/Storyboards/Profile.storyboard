@@ -302,7 +302,6 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fQb-Eh-r06">
                             <connections>
                                 <action selector="pressedCancel:" destination="RVU-3E-qID" id="Qoq-jW-5CD"/>
-                                <segue destination="YXw-6m-NDB" kind="unwind" identifier="unwindToProfileVC" unwindAction="unwindToProfile:" id="RIb-wX-wa8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -310,6 +309,7 @@
                         <outlet property="activityIndicator" destination="mpI-iW-fEh" id="Tcr-aN-c9y"/>
                         <outlet property="profileImageView" destination="5tt-w8-zNR" id="NTW-5T-hlc"/>
                         <outlet property="userNameField" destination="1hI-Ik-KAw" id="wgf-G6-tWd"/>
+                        <segue destination="YXw-6m-NDB" kind="unwind" identifier="unwindToProfileVC" unwindAction="unwindToProfileWithSegue:" id="JZ3-kT-8Hq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jad-AJ-l2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,7 +386,7 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <action selector="pressedEdit:" destination="eoU-uI-91D" eventType="touchUpInside" id="lb5-Ln-wZ5"/>
+                                                <action selector="pressedEdit:" destination="eoU-uI-91D" eventType="touchUpInside" id="2is-Am-Svy"/>
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9w2-tZ-Ysj">
@@ -411,13 +411,13 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="editButton" destination="PgT-dY-CQZ" id="CSG-6c-625"/>
+                                    <outlet property="editButton" destination="PgT-dY-CQZ" id="u5o-p2-qdX"/>
                                     <outlet property="nameLabel" destination="XlP-cG-9q1" id="Kj3-iP-yH8"/>
                                     <outlet property="postImageView" destination="9w2-tZ-Ysj" id="03m-th-x4c"/>
                                     <outlet property="profileImageView" destination="G31-wz-To7" id="1Ma-9q-Vvk"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostLikesAndCommentsCell" rowHeight="83" id="BfL-7K-a6g" customClass="PostCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostLikesAndCommentsCell" rowHeight="83" id="BfL-7K-a6g" customClass="PostCell" customModule="InstaClone" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="478" width="375" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BfL-7K-a6g" id="AcK-mk-BIk">
@@ -472,7 +472,7 @@
                                     <outlet property="likeImageView" destination="X5A-bn-P9K" id="pPW-j1-B9f"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCaptionCell" id="dfn-od-quG" customClass="PostCaptionCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCaptionCell" id="dfn-od-quG" customClass="PostCaptionCell" customModule="InstaClone" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="561" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dfn-od-quG" id="UIQ-Vv-IQR">
@@ -507,9 +507,9 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="SJh-N2-Nv8"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="ytm-bA-cnr" kind="unwind" identifier="unwindToProfileVC" unwindAction="unwindToProfile:" id="06M-56-QTf"/>
                         <segue destination="f1D-2b-Qfi" kind="show" identifier="ShowComments" id="ld7-w2-S0q"/>
                         <segue destination="Stc-4Z-JSW" kind="show" identifier="ShowLikes" id="Elj-8d-Xi3"/>
+                        <segue destination="ytm-bA-cnr" kind="unwind" identifier="unwindToProfileVC" unwindAction="unwindToProfileWithSegue:" id="TCA-kw-uQs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5w-0J-1KJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
