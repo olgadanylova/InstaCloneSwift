@@ -378,7 +378,7 @@
                     <connections>
                         <outlet property="commentTextField" destination="onT-jW-F7U" id="1pD-T9-r6o"/>
                         <outlet property="sendButton" destination="UrA-t6-wmc" id="pf1-gN-Xwx"/>
-                        <outlet property="tableView" destination="fWy-90-yXX" id="msw-Eu-b1s"/>
+                        <outlet property="tableView" destination="fWy-90-yXX" id="4cO-Q9-tmd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urF-Nh-18C" userLabel="First Responder" sceneMemberID="firstResponder"/>

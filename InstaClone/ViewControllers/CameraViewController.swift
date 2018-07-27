@@ -76,7 +76,7 @@ class CameraViewController: UIViewController, UITextViewDelegate, UINavigationCo
         if (shareButton.titleLabel?.text != TAKE_PHOTO) {
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
-            let photoFileName = String(format: "/InstaCloneProfilePictures/%@.png", UUID().uuidString)
+            let photoFileName = String(format: "/InstaClonePhotos/%@.png", UUID().uuidString)
             let image = PictureHelper.sharedInstance.scaleImage(photoImageView.image!)
             let data = UIImagePNGRepresentation(image)
             PictureHelper.sharedInstance.saveImageToUserDefaults(image, photoFileName)

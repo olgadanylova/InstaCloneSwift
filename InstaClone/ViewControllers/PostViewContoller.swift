@@ -112,7 +112,9 @@ class PostViewContoller: UITableViewController, UITextViewDelegate {
         else if (segue.identifier == "ShowComments") {
             let commentsVC = segue.destination as! CommentsViewController
             commentsVC.post = post
-            commentsVC.tableView.reloadData()
+            if (commentsVC.tableView != nil) {
+                commentsVC.tableView.reloadData()
+            }
         }
     }
 

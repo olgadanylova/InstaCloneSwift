@@ -10,7 +10,6 @@ class CommentsViewController: UIViewController, UITabBarDelegate, UITableViewDel
     var post: Post?
     private var postStore: IDataStore?
     private var commentStore: IDataStore?
-    //private var comments: [Comment]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +24,7 @@ class CommentsViewController: UIViewController, UITabBarDelegate, UITableViewDel
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -101,7 +100,7 @@ class CommentsViewController: UIViewController, UITabBarDelegate, UITableViewDel
             let comment = post?.comments![indexPath.row]
             if (comment?.ownerId == Backendless.sharedInstance().userService.currentUser.objectId as String ||
                 post?.ownerId == Backendless.sharedInstance().userService.currentUser.objectId as String) {
-                commentStore?.remove(commentStore, response: { removed in
+                commentStore?.remove(comment, response: { removed in
                 self.reloadTableData()
                 }, error: { fault in
                     AlertViewController.sharedInstance.showErrorAlert(fault!.message, self)

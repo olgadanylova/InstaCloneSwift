@@ -104,7 +104,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let indexPath = tableView.indexPath(for: cell)
                 let commentsVC = segue.destination as! CommentsViewController
                 commentsVC.post = posts?[(indexPath?.row)!]
-//                commentsVC.tableView.reloadData()
+                if (commentsVC.tableView != nil) {
+                    commentsVC.tableView.reloadData()
+                }                
             }
         }
     }
