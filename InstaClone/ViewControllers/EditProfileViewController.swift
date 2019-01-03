@@ -85,7 +85,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UINaviga
             var profilePicture = currentUser?.getProperty("profilePicture") as! String
             if let range = profilePicture.range(of: "InstaCloneProfilePictures") {
                 profilePicture = String(profilePicture[range.lowerBound...])
-                Backendless.sharedInstance().file.remove(profilePicture, response: {
+                Backendless.sharedInstance().file.remove(profilePicture, response: { removed in
                     PictureHelper.sharedInstance.removeImageFromUserDefaults(profilePicture)
                     let profileImageFileName = String(format: "/InstaCloneProfilePictures/%@.png", UUID().uuidString)
                     let image = PictureHelper.sharedInstance.scaleAndRotateImage(self.profileImageView.image!)
