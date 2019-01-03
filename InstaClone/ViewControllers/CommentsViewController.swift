@@ -23,8 +23,8 @@ class CommentsViewController: UIViewController, UITabBarDelegate, UITableViewDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -34,7 +34,7 @@ class CommentsViewController: UIViewController, UITabBarDelegate, UITableViewDel
     }
     
     @IBAction func keyboardDidShow(_ notification: NSNotification) {
-        let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
+        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         UIView.animate(withDuration: 0.3, animations: {
             var f = self.view.frame
             f.origin.y = -keyboardSize.height
@@ -95,7 +95,7 @@ class CommentsViewController: UIViewController, UITabBarDelegate, UITableViewDel
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             let comment = post?.comments![indexPath.row]
             if (comment?.ownerId == Backendless.sharedInstance().userService.currentUser.objectId as String ||

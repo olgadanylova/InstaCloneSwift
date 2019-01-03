@@ -32,7 +32,10 @@ class CameraViewController: UIViewController, UITextViewDelegate, UINavigationCo
         shareButton.setTitle(TAKE_PHOTO, for: .normal)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         photoImageView.isUserInteractionEnabled = true
         photoImageView.isHidden = false
         captionTextView.isUserInteractionEnabled = true
@@ -40,16 +43,16 @@ class CameraViewController: UIViewController, UITextViewDelegate, UINavigationCo
         clearButton.isEnabled = true
         clearButton.tintColor = getColorFromHex("2C3E50", 1)
         shareButton.setTitle(SHARE, for: .normal)
-        if let mediaType = info[UIImagePickerControllerMediaType] as? String {
+        if let mediaType = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.mediaType)] as? String {
             if (mediaType == kUTTypeImage as String) {
                 if  (picker.sourceType == .camera) {
-                    let imageTaken = info[UIImagePickerControllerOriginalImage] as! UIImage
+                    let imageTaken = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
                     UIImageWriteToSavedPhotosAlbum(imageTaken, nil, nil, nil)
                     photoImageView.image = imageTaken
                     picker.dismiss(animated: true, completion: nil)
                 }
                 else {
-                    let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+                    let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
                     photoImageView.image = image
                     picker.dismiss(animated: true, completion: nil)
                 }
@@ -78,7 +81,7 @@ class CameraViewController: UIViewController, UITextViewDelegate, UINavigationCo
             activityIndicator.startAnimating()
             let photoFileName = String(format: "/InstaClonePhotos/%@.png", UUID().uuidString)
             let image = PictureHelper.sharedInstance.scaleImage(photoImageView.image!)
-            let data = UIImagePNGRepresentation(image)
+            let data = image.pngData()
             PictureHelper.sharedInstance.saveImageToUserDefaults(image, photoFileName)
             Backendless.sharedInstance().file.uploadFile(photoFileName, content: data, response: { photo in
                 let newPost = Post()
@@ -114,4 +117,14 @@ class CameraViewController: UIViewController, UITextViewDelegate, UINavigationCo
     @IBAction func pressedClear(_ sender: Any) {
         setDefaultView()
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

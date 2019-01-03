@@ -7,8 +7,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var signInButton: UIButton!
     
-    private let APP_ID = "APP_ID"
-    private let API_KEY = "API_KEY"
+    private let APP_ID = "61AE8EEB-EA13-15FB-FF48-9197C8FD0500"
+    private let API_KEY = "77CCF20A-A5AB-FF09-FFFC-710027274900"
     private let HOST_URL = "http://api.backendless.com"
     
     override func viewDidLoad() {

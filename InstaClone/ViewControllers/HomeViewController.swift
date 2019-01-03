@@ -2,7 +2,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate {
-
+    
     @IBOutlet var tableView: UITableView!
     
     private var postStore: IDataStore?
@@ -11,7 +11,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 550
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         postStore = Backendless.sharedInstance().data.of(Post.ofClass())
         loadPosts()
     }

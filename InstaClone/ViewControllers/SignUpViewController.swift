@@ -43,17 +43,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UINavigationC
         AlertViewController.sharedInstance.showTakePhotoAlert(self)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let mediaType = info[UIImagePickerControllerMediaType] as? String {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        if let mediaType = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.mediaType)] as? String {
             if (mediaType == kUTTypeImage as String) {
                 if  (picker.sourceType == .camera) {
-                    let imageTaken = info[UIImagePickerControllerOriginalImage] as! UIImage
+                    let imageTaken = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
                     UIImageWriteToSavedPhotosAlbum(imageTaken, nil, nil, nil)
                     profileImageView.image = imageTaken
                     picker.dismiss(animated: true, completion: nil)
                 }
                 else {
-                    let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+                    let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
                     profileImageView.image = image
                     picker.dismiss(animated: true, completion: nil)
                 }
@@ -77,7 +80,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UINavigationC
             if (profileImageView.image?.imageAsset?.value(forKey: "assetName") as? String != "camera") {
                 let profileImageFileName = String(format: "/InstaCloneProfilePictures/%@.png", UUID().uuidString)
                 let image = PictureHelper.sharedInstance.scaleImage(profileImageView.image!)
-                let data = UIImagePNGRepresentation(image)
+                let data = image.pngData()
                 PictureHelper.sharedInstance.saveImageToUserDefaults(image, profileImageFileName)
                 Backendless.sharedInstance().file.uploadFile(profileImageFileName, content: data, response: { profilePicture in
                     newUser.setProperty("profilePicture", object: profilePicture?.fileURL)
@@ -118,4 +121,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBAction func pressedDismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

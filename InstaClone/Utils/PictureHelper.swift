@@ -172,27 +172,27 @@ class PictureHelper: NSObject {
     }
     
     func rotateImage(_ image: UIImage) -> UIImage {
-        if (image.imageOrientation == UIImageOrientation.up) {
+        if (image.imageOrientation == UIImage.Orientation.up) {
             return image;
         }
         var transform:CGAffineTransform = CGAffineTransform.identity
-        if (image.imageOrientation == UIImageOrientation.down || image.imageOrientation == UIImageOrientation.downMirrored) {
+        if (image.imageOrientation == UIImage.Orientation.down || image.imageOrientation == UIImage.Orientation.downMirrored) {
             transform = transform.translatedBy(x: image.size.width, y: image.size.height)
             transform = transform.rotated(by: .pi)
         }
-        if (image.imageOrientation == UIImageOrientation.left || image.imageOrientation == UIImageOrientation.leftMirrored) {
+        if (image.imageOrientation == UIImage.Orientation.left || image.imageOrientation == UIImage.Orientation.leftMirrored) {
             transform = transform.translatedBy(x: image.size.width, y: 0)
             transform = transform.rotated(by: .pi / 2)
         }
-        if (image.imageOrientation == UIImageOrientation.right || image.imageOrientation == UIImageOrientation.rightMirrored) {
+        if (image.imageOrientation == UIImage.Orientation.right || image.imageOrientation == UIImage.Orientation.rightMirrored) {
             transform = transform.translatedBy(x: 0, y: image.size.height);
             transform = transform.rotated(by: -(.pi / 2));
         }
-        if (image.imageOrientation == UIImageOrientation.upMirrored || image.imageOrientation == UIImageOrientation.downMirrored) {
+        if (image.imageOrientation == UIImage.Orientation.upMirrored || image.imageOrientation == UIImage.Orientation.downMirrored) {
             transform = transform.translatedBy(x: image.size.width, y: 0)
             transform = transform.scaledBy(x: -1, y: 1)
         }
-        if (image.imageOrientation == UIImageOrientation.leftMirrored || image.imageOrientation == UIImageOrientation.rightMirrored) {
+        if (image.imageOrientation == UIImage.Orientation.leftMirrored || image.imageOrientation == UIImage.Orientation.rightMirrored) {
             transform = transform.translatedBy(x: image.size.height, y: 0);
             transform = transform.scaledBy(x: -1, y: 1);
         }
@@ -201,10 +201,10 @@ class PictureHelper: NSObject {
                                            space: image.cgImage!.colorSpace!,
                                            bitmapInfo: image.cgImage!.bitmapInfo.rawValue)!
         context.concatenate(transform)
-        if (image.imageOrientation == UIImageOrientation.left ||
-            image.imageOrientation == UIImageOrientation.leftMirrored ||
-            image.imageOrientation == UIImageOrientation.right ||
-            image.imageOrientation == UIImageOrientation.rightMirrored) {
+        if (image.imageOrientation == UIImage.Orientation.left ||
+            image.imageOrientation == UIImage.Orientation.leftMirrored ||
+            image.imageOrientation == UIImage.Orientation.right ||
+            image.imageOrientation == UIImage.Orientation.rightMirrored) {
             context.draw(image.cgImage!, in: CGRect(x: 0, y: 0, width: image.size.height, height: image.size.width))
         }
         else {
