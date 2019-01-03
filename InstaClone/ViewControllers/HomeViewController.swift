@@ -111,14 +111,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    @IBAction func pressedLogout(_ sender: Any) {
-        Backendless.sharedInstance().userService.logout({
-            self.performSegue(withIdentifier: "unwindToSignIn", sender: nil)
-        }, error: { fault in
-            AlertViewController.sharedInstance.showErrorAlert(fault!.message, self)
-        })
-    }
-    
     @IBAction func pressedRefresh(_ sender: Any) {
         loadPosts()
         scrollToTop()

@@ -35,9 +35,11 @@
 		5E94A8FC20F3657200F6F8C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94A8FB20F3657200F6F8C2 /* SignUpViewController.swift */; };
 		5E94A8FE20F3880000F6F8C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94A8FD20F3880000F6F8C2 /* HomeViewController.swift */; };
 		5E94A90020F39C0D00F6F8C2 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94A8FF20F39C0D00F6F8C2 /* CameraViewController.swift */; };
+		783E7741DCE3CB54EE515322 /* Pods_InstaClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8961FCED14F79F4A80D76FFB /* Pods_InstaClone.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11970BE61C904F1B71CAE9AC /* Pods-InstaClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.release.xcconfig"; path = "Target Support Files/Pods-InstaClone/Pods-InstaClone.release.xcconfig"; sourceTree = "<group>"; };
 		5A0085FF20EF4C970005FEF7 /* InstaClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A00860220EF4C970005FEF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A00860920EF4C970005FEF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +70,8 @@
 		5E94A8FB20F3657200F6F8C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5E94A8FD20F3880000F6F8C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5E94A8FF20F39C0D00F6F8C2 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		8961FCED14F79F4A80D76FFB /* Pods_InstaClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE5B4DF93AC0A5662F3A21EC /* Pods-InstaClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.debug.xcconfig"; path = "Target Support Files/Pods-InstaClone/Pods-InstaClone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,18 +79,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				783E7741DCE3CB54EE515322 /* Pods_InstaClone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E098799F1172DCD03A4EEDA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE5B4DF93AC0A5662F3A21EC /* Pods-InstaClone.debug.xcconfig */,
+				11970BE61C904F1B71CAE9AC /* Pods-InstaClone.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5A0085F620EF4C970005FEF7 = {
 			isa = PBXGroup;
 			children = (
 				5A00860120EF4C970005FEF7 /* InstaClone */,
 				5A00860020EF4C970005FEF7 /* Products */,
 				6E955DDA5DC8396DD6E982B7 /* Frameworks */,
+				2E098799F1172DCD03A4EEDA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +192,7 @@
 		6E955DDA5DC8396DD6E982B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8961FCED14F79F4A80D76FFB /* Pods_InstaClone.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,9 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A00861120EF4C970005FEF7 /* Build configuration list for PBXNativeTarget "InstaClone" */;
 			buildPhases = (
+				B775EAA40596F3ABD41CBDED /* [CP] Check Pods Manifest.lock */,
 				5A0085FB20EF4C970005FEF7 /* Sources */,
 				5A0085FC20EF4C970005FEF7 /* Frameworks */,
 				5A0085FD20EF4C970005FEF7 /* Resources */,
+				044EF3B4D9ED01ABD78E41FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,10 +227,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "Backendless";
+				ORGANIZATIONNAME = Backendless;
 				TargetAttributes = {
 					5A0085FE20EF4C970005FEF7 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -250,6 +269,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		044EF3B4D9ED01ABD78E41FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InstaClone/Pods-InstaClone-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InstaClone/Pods-InstaClone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B775EAA40596F3ABD41CBDED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstaClone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5A0085FB20EF4C970005FEF7 /* Sources */ = {
@@ -410,10 +478,11 @@
 		};
 		5A00861220EF4C970005FEF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE5B4DF93AC0A5662F3A21EC /* Pods-InstaClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 73FSJC7BUF;
 				INFOPLIST_FILE = InstaClone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -423,17 +492,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.backendless.InstaClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pods/Backendless/SDK/ios/backendless/include/Backendless-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		5A00861320EF4C970005FEF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11970BE61C904F1B71CAE9AC /* Pods-InstaClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 73FSJC7BUF;
 				INFOPLIST_FILE = InstaClone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -443,7 +513,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.backendless.InstaClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pods/Backendless/SDK/ios/backendless/include/Backendless-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
